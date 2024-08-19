@@ -1,19 +1,16 @@
 from libc.stdlib cimport malloc, free
-from libc.string cimport memset
 
-cdef struct Vector:
-    double x
-    double y
-
-cdef struct Particle:
-    Vector position
-    Vector velocity
-    double mass
-
-# Import C functions and C data types:
 # block use definitions from an external C header file.
-# This allows declare C functions, structs, constants.
 cdef extern from "simulation.h":
+    ctypedef struct Vector:
+        double x
+        double y
+
+    ctypedef struct Particle:
+        Vector position
+        Vector velocity
+        double mass
+
     void simulate(Particle particles[], int num_particles, int num_steps, double dt)
 
 # Wrapper function for Python
@@ -25,10 +22,6 @@ def simulate_particles(list particles, int num_steps, double dt):
     if c_particles == NULL or forces == NULL:
         raise MemoryError("Failed to allocate memory for particles or forces.")
 
-    # Initialize memory for forces
-    memset(forces, 0, num_particles * sizeof(Vector))
-    memset(c_particles, 0, num_particles * sizeof(Particle))
-
     # Convert Python list to C array
     for i in range(num_particles):
         c_particles[i].position.x = particles[i][0].x
@@ -37,10 +30,9 @@ def simulate_particles(list particles, int num_steps, double dt):
         c_particles[i].velocity.y = particles[i][1].y
         c_particles[i].mass = particles[i][2]
 
-    # Call the C function
     simulate(c_particles, num_particles, num_steps, dt)
 
-    # Convert C array back to Python list
+    # Update Python list based on C array
     for i in range(num_particles):
         particles[i][0].x = c_particles[i].position.x
         particles[i][0].y = c_particles[i].position.y

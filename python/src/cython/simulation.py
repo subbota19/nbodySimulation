@@ -1,4 +1,4 @@
-from simulation import simulate_particles
+from _simulation import simulate_particles
 from ctypes import Structure, c_double
 
 NUM_STEPS = 1000
@@ -11,8 +11,8 @@ class Vector(Structure):
 
 # Initialize particles
 particles = [
-    (Vector(0.0, 0.0), Vector(0.0, 0.0), 1.989e30),  # Sun
-    (Vector(1.496e11, 0.0), Vector(0.0, 29780.0), 5.972e24)  # Earth
+    [Vector(0.0, 0.0), Vector(0.0, 0.0), 1.989e30],  # Sun
+    [Vector(1.496e11, 0.0), Vector(0.0, 29780.0), 5.972e24]  # Earth
 ]
 
 # Call the Cython function

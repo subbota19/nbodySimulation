@@ -15,18 +15,13 @@
         "include_dirs": [
             "c/include"
         ],
-        "libraries": [
-            "simulation"
-        ],
-        "library_dirs": [
-            "."
-        ],
-        "name": "simulation",
+        "name": "python.src.cython._simulation",
         "sources": [
-            "python/src/cython/simulation.pyx"
+            "./python/src/cython/_simulation.pyx",
+            "./c/src/simulation.c"
         ]
     },
-    "module_name": "simulation"
+    "module_name": "python.src.cython._simulation"
 }
 END: Cython Metadata */
 
@@ -1246,8 +1241,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__simulation
-#define __PYX_HAVE_API__simulation
+#define __PYX_HAVE__python__src__cython___simulation
+#define __PYX_HAVE_API__python__src__cython___simulation
 /* Early includes */
 #include <string.h>
 #include <stdlib.h>
@@ -1500,7 +1495,7 @@ static const char *__pyx_filename;
 /* #### Code section: filename_table ### */
 
 static const char *__pyx_f[] = {
-  "python/src/cython/simulation.pyx",
+  "python/src/cython/_simulation.pyx",
 };
 /* #### Code section: utility_code_proto_before_types ### */
 /* ForceInitThreads.proto */
@@ -1513,33 +1508,6 @@ static const char *__pyx_f[] = {
 /* #### Code section: type_declarations ### */
 
 /*--- Type declarations ---*/
-struct __pyx_t_10simulation_Vector;
-struct __pyx_t_10simulation_Particle;
-
-/* "simulation.pyx":4
- * from libc.string cimport memset
- * 
- * cdef struct Vector:             # <<<<<<<<<<<<<<
- *     double x
- *     double y
- */
-struct __pyx_t_10simulation_Vector {
-  double x;
-  double y;
-};
-
-/* "simulation.pyx":8
- *     double y
- * 
- * cdef struct Particle:             # <<<<<<<<<<<<<<
- *     Vector position
- *     Vector velocity
- */
-struct __pyx_t_10simulation_Particle {
-  struct __pyx_t_10simulation_Vector position;
-  struct __pyx_t_10simulation_Vector velocity;
-  double mass;
-};
 /* #### Code section: utility_code_proto ### */
 
 /* --- Runtime support code (head) --- */
@@ -2082,14 +2050,14 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 /* Module declarations from "libc.stdlib" */
 
-/* Module declarations from "simulation" */
+/* Module declarations from "python.src.cython._simulation" */
 /* #### Code section: typeinfo ### */
 /* #### Code section: before_global_var ### */
-#define __Pyx_MODULE_NAME "simulation"
-extern int __pyx_module_is_main_simulation;
-int __pyx_module_is_main_simulation = 0;
+#define __Pyx_MODULE_NAME "python.src.cython._simulation"
+extern int __pyx_module_is_main_python__src__cython___simulation;
+int __pyx_module_is_main_python__src__cython___simulation = 0;
 
-/* Implementation of "simulation" */
+/* Implementation of "python.src.cython._simulation" */
 /* #### Code section: global_var ### */
 static PyObject *__pyx_builtin_MemoryError;
 static PyObject *__pyx_builtin_range;
@@ -2106,7 +2074,6 @@ static const char __pyx_k_range[] = "range";
 static const char __pyx_k_forces[] = "forces";
 static const char __pyx_k_num_steps[] = "num_steps";
 static const char __pyx_k_particles[] = "particles";
-static const char __pyx_k_simulation[] = "simulation";
 static const char __pyx_k_MemoryError[] = "MemoryError";
 static const char __pyx_k_c_particles[] = "c_particles";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
@@ -2114,10 +2081,11 @@ static const char __pyx_k_num_particles[] = "num_particles";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_simulate_particles[] = "simulate_particles";
+static const char __pyx_k_python_src_cython__simulation[] = "python.src.cython._simulation";
 static const char __pyx_k_Failed_to_allocate_memory_for_pa[] = "Failed to allocate memory for particles or forces.";
-static const char __pyx_k_python_src_cython_simulation_pyx[] = "python/src/cython/simulation.pyx";
+static const char __pyx_k_python_src_cython__simulation_py[] = "python/src/cython/_simulation.pyx";
 /* #### Code section: decls ### */
-static PyObject *__pyx_pf_10simulation_simulate_particles(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_particles, int __pyx_v_num_steps, double __pyx_v_dt); /* proto */
+static PyObject *__pyx_pf_6python_3src_6cython_11_simulation_simulate_particles(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_particles, int __pyx_v_num_steps, double __pyx_v_dt); /* proto */
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
 typedef struct {
@@ -2166,10 +2134,10 @@ typedef struct {
   PyObject *__pyx_n_s_num_particles;
   PyObject *__pyx_n_s_num_steps;
   PyObject *__pyx_n_s_particles;
-  PyObject *__pyx_kp_s_python_src_cython_simulation_pyx;
+  PyObject *__pyx_n_s_python_src_cython__simulation;
+  PyObject *__pyx_kp_s_python_src_cython__simulation_py;
   PyObject *__pyx_n_s_range;
   PyObject *__pyx_n_s_simulate_particles;
-  PyObject *__pyx_n_s_simulation;
   PyObject *__pyx_n_s_test;
   PyObject *__pyx_n_s_x;
   PyObject *__pyx_n_s_y;
@@ -2233,10 +2201,10 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_num_particles);
   Py_CLEAR(clear_module_state->__pyx_n_s_num_steps);
   Py_CLEAR(clear_module_state->__pyx_n_s_particles);
-  Py_CLEAR(clear_module_state->__pyx_kp_s_python_src_cython_simulation_pyx);
+  Py_CLEAR(clear_module_state->__pyx_n_s_python_src_cython__simulation);
+  Py_CLEAR(clear_module_state->__pyx_kp_s_python_src_cython__simulation_py);
   Py_CLEAR(clear_module_state->__pyx_n_s_range);
   Py_CLEAR(clear_module_state->__pyx_n_s_simulate_particles);
-  Py_CLEAR(clear_module_state->__pyx_n_s_simulation);
   Py_CLEAR(clear_module_state->__pyx_n_s_test);
   Py_CLEAR(clear_module_state->__pyx_n_s_x);
   Py_CLEAR(clear_module_state->__pyx_n_s_y);
@@ -2278,10 +2246,10 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_num_particles);
   Py_VISIT(traverse_module_state->__pyx_n_s_num_steps);
   Py_VISIT(traverse_module_state->__pyx_n_s_particles);
-  Py_VISIT(traverse_module_state->__pyx_kp_s_python_src_cython_simulation_pyx);
+  Py_VISIT(traverse_module_state->__pyx_n_s_python_src_cython__simulation);
+  Py_VISIT(traverse_module_state->__pyx_kp_s_python_src_cython__simulation_py);
   Py_VISIT(traverse_module_state->__pyx_n_s_range);
   Py_VISIT(traverse_module_state->__pyx_n_s_simulate_particles);
-  Py_VISIT(traverse_module_state->__pyx_n_s_simulation);
   Py_VISIT(traverse_module_state->__pyx_n_s_test);
   Py_VISIT(traverse_module_state->__pyx_n_s_x);
   Py_VISIT(traverse_module_state->__pyx_n_s_y);
@@ -2337,10 +2305,10 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_num_particles __pyx_mstate_global->__pyx_n_s_num_particles
 #define __pyx_n_s_num_steps __pyx_mstate_global->__pyx_n_s_num_steps
 #define __pyx_n_s_particles __pyx_mstate_global->__pyx_n_s_particles
-#define __pyx_kp_s_python_src_cython_simulation_pyx __pyx_mstate_global->__pyx_kp_s_python_src_cython_simulation_pyx
+#define __pyx_n_s_python_src_cython__simulation __pyx_mstate_global->__pyx_n_s_python_src_cython__simulation
+#define __pyx_kp_s_python_src_cython__simulation_py __pyx_mstate_global->__pyx_kp_s_python_src_cython__simulation_py
 #define __pyx_n_s_range __pyx_mstate_global->__pyx_n_s_range
 #define __pyx_n_s_simulate_particles __pyx_mstate_global->__pyx_n_s_simulate_particles
-#define __pyx_n_s_simulation __pyx_mstate_global->__pyx_n_s_simulation
 #define __pyx_n_s_test __pyx_mstate_global->__pyx_n_s_test
 #define __pyx_n_s_x __pyx_mstate_global->__pyx_n_s_x
 #define __pyx_n_s_y __pyx_mstate_global->__pyx_n_s_y
@@ -2349,7 +2317,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_codeobj__3 __pyx_mstate_global->__pyx_codeobj__3
 /* #### Code section: module_code ### */
 
-/* "simulation.pyx":20
+/* "python/src/cython/_simulation.pyx":17
  * 
  * # Wrapper function for Python
  * def simulate_particles(list particles, int num_steps, double dt):             # <<<<<<<<<<<<<<
@@ -2358,15 +2326,15 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10simulation_1simulate_particles(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_6python_3src_6cython_11_simulation_1simulate_particles(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_10simulation_1simulate_particles = {"simulate_particles", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10simulation_1simulate_particles, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_10simulation_1simulate_particles(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_6python_3src_6cython_11_simulation_1simulate_particles = {"simulate_particles", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_6python_3src_6cython_11_simulation_1simulate_particles, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_6python_3src_6cython_11_simulation_1simulate_particles(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -2416,7 +2384,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 20, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 17, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -2424,9 +2392,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 20, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 17, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("simulate_particles", 1, 3, 3, 1); __PYX_ERR(0, 20, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("simulate_particles", 1, 3, 3, 1); __PYX_ERR(0, 17, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -2434,14 +2402,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[2]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 20, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 17, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("simulate_particles", 1, 3, 3, 2); __PYX_ERR(0, 20, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("simulate_particles", 1, 3, 3, 2); __PYX_ERR(0, 17, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "simulate_particles") < 0)) __PYX_ERR(0, 20, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "simulate_particles") < 0)) __PYX_ERR(0, 17, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 3)) {
       goto __pyx_L5_argtuple_error;
@@ -2451,12 +2419,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       values[2] = __Pyx_Arg_FASTCALL(__pyx_args, 2);
     }
     __pyx_v_particles = ((PyObject*)values[0]);
-    __pyx_v_num_steps = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_num_steps == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 20, __pyx_L3_error)
-    __pyx_v_dt = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_dt == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 20, __pyx_L3_error)
+    __pyx_v_num_steps = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_num_steps == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 17, __pyx_L3_error)
+    __pyx_v_dt = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_dt == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 17, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("simulate_particles", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 20, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("simulate_particles", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 17, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -2466,12 +2434,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("simulation.simulate_particles", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("python.src.cython._simulation.simulate_particles", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_particles), (&PyList_Type), 1, "particles", 1))) __PYX_ERR(0, 20, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10simulation_simulate_particles(__pyx_self, __pyx_v_particles, __pyx_v_num_steps, __pyx_v_dt);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_particles), (&PyList_Type), 1, "particles", 1))) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_r = __pyx_pf_6python_3src_6cython_11_simulation_simulate_particles(__pyx_self, __pyx_v_particles, __pyx_v_num_steps, __pyx_v_dt);
 
   /* function exit code */
   goto __pyx_L0;
@@ -2488,10 +2456,10 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10simulation_simulate_particles(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_particles, int __pyx_v_num_steps, double __pyx_v_dt) {
+static PyObject *__pyx_pf_6python_3src_6cython_11_simulation_simulate_particles(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_particles, int __pyx_v_num_steps, double __pyx_v_dt) {
   int __pyx_v_num_particles;
-  struct __pyx_t_10simulation_Particle *__pyx_v_c_particles;
-  struct __pyx_t_10simulation_Vector *__pyx_v_forces;
+  Particle *__pyx_v_c_particles;
+  Vector *__pyx_v_forces;
   int __pyx_v_i;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -2510,7 +2478,7 @@ static PyObject *__pyx_pf_10simulation_simulate_particles(CYTHON_UNUSED PyObject
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("simulate_particles", 1);
 
-  /* "simulation.pyx":21
+  /* "python/src/cython/_simulation.pyx":18
  * # Wrapper function for Python
  * def simulate_particles(list particles, int num_steps, double dt):
  *     cdef int num_particles = len(particles)             # <<<<<<<<<<<<<<
@@ -2519,30 +2487,30 @@ static PyObject *__pyx_pf_10simulation_simulate_particles(CYTHON_UNUSED PyObject
  */
   if (unlikely(__pyx_v_particles == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 21, __pyx_L1_error)
+    __PYX_ERR(0, 18, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_PyList_GET_SIZE(__pyx_v_particles); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyList_GET_SIZE(__pyx_v_particles); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 18, __pyx_L1_error)
   __pyx_v_num_particles = __pyx_t_1;
 
-  /* "simulation.pyx":22
+  /* "python/src/cython/_simulation.pyx":19
  * def simulate_particles(list particles, int num_steps, double dt):
  *     cdef int num_particles = len(particles)
  *     cdef Particle *c_particles = <Particle *> malloc(num_particles * sizeof(Particle))             # <<<<<<<<<<<<<<
  *     cdef Vector *forces = <Vector *> malloc(num_particles * sizeof(Vector))
  * 
  */
-  __pyx_v_c_particles = ((struct __pyx_t_10simulation_Particle *)malloc((__pyx_v_num_particles * (sizeof(struct __pyx_t_10simulation_Particle)))));
+  __pyx_v_c_particles = ((Particle *)malloc((__pyx_v_num_particles * (sizeof(Particle)))));
 
-  /* "simulation.pyx":23
+  /* "python/src/cython/_simulation.pyx":20
  *     cdef int num_particles = len(particles)
  *     cdef Particle *c_particles = <Particle *> malloc(num_particles * sizeof(Particle))
  *     cdef Vector *forces = <Vector *> malloc(num_particles * sizeof(Vector))             # <<<<<<<<<<<<<<
  * 
  *     if c_particles == NULL or forces == NULL:
  */
-  __pyx_v_forces = ((struct __pyx_t_10simulation_Vector *)malloc((__pyx_v_num_particles * (sizeof(struct __pyx_t_10simulation_Vector)))));
+  __pyx_v_forces = ((Vector *)malloc((__pyx_v_num_particles * (sizeof(Vector)))));
 
-  /* "simulation.pyx":25
+  /* "python/src/cython/_simulation.pyx":22
  *     cdef Vector *forces = <Vector *> malloc(num_particles * sizeof(Vector))
  * 
  *     if c_particles == NULL or forces == NULL:             # <<<<<<<<<<<<<<
@@ -2560,20 +2528,20 @@ static PyObject *__pyx_pf_10simulation_simulate_particles(CYTHON_UNUSED PyObject
   __pyx_L4_bool_binop_done:;
   if (unlikely(__pyx_t_2)) {
 
-    /* "simulation.pyx":26
+    /* "python/src/cython/_simulation.pyx":23
  * 
  *     if c_particles == NULL or forces == NULL:
  *         raise MemoryError("Failed to allocate memory for particles or forces.")             # <<<<<<<<<<<<<<
  * 
- *     # Initialize memory for forces
+ *     # Convert Python list to C array
  */
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_MemoryError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 26, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_MemoryError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 23, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(0, 26, __pyx_L1_error)
+    __PYX_ERR(0, 23, __pyx_L1_error)
 
-    /* "simulation.pyx":25
+    /* "python/src/cython/_simulation.pyx":22
  *     cdef Vector *forces = <Vector *> malloc(num_particles * sizeof(Vector))
  * 
  *     if c_particles == NULL or forces == NULL:             # <<<<<<<<<<<<<<
@@ -2582,25 +2550,7 @@ static PyObject *__pyx_pf_10simulation_simulate_particles(CYTHON_UNUSED PyObject
  */
   }
 
-  /* "simulation.pyx":29
- * 
- *     # Initialize memory for forces
- *     memset(forces, 0, num_particles * sizeof(Vector))             # <<<<<<<<<<<<<<
- *     memset(c_particles, 0, num_particles * sizeof(Particle))
- * 
- */
-  (void)(memset(__pyx_v_forces, 0, (__pyx_v_num_particles * (sizeof(struct __pyx_t_10simulation_Vector)))));
-
-  /* "simulation.pyx":30
- *     # Initialize memory for forces
- *     memset(forces, 0, num_particles * sizeof(Vector))
- *     memset(c_particles, 0, num_particles * sizeof(Particle))             # <<<<<<<<<<<<<<
- * 
- *     # Convert Python list to C array
- */
-  (void)(memset(__pyx_v_c_particles, 0, (__pyx_v_num_particles * (sizeof(struct __pyx_t_10simulation_Particle)))));
-
-  /* "simulation.pyx":33
+  /* "python/src/cython/_simulation.pyx":26
  * 
  *     # Convert Python list to C array
  *     for i in range(num_particles):             # <<<<<<<<<<<<<<
@@ -2612,7 +2562,7 @@ static PyObject *__pyx_pf_10simulation_simulate_particles(CYTHON_UNUSED PyObject
   for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
     __pyx_v_i = __pyx_t_7;
 
-    /* "simulation.pyx":34
+    /* "python/src/cython/_simulation.pyx":27
  *     # Convert Python list to C array
  *     for i in range(num_particles):
  *         c_particles[i].position.x = particles[i][0].x             # <<<<<<<<<<<<<<
@@ -2621,21 +2571,21 @@ static PyObject *__pyx_pf_10simulation_simulate_particles(CYTHON_UNUSED PyObject
  */
     if (unlikely(__pyx_v_particles == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 34, __pyx_L1_error)
+      __PYX_ERR(0, 27, __pyx_L1_error)
     }
-    __pyx_t_4 = __Pyx_GetItemInt_List(__pyx_v_particles, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 34, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetItemInt_List(__pyx_v_particles, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 27, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_8 = __Pyx_GetItemInt(__pyx_t_4, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 34, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_GetItemInt(__pyx_t_4, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 27, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_x); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 34, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_x); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 27, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 34, __pyx_L1_error)
+    __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 27, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     (__pyx_v_c_particles[__pyx_v_i]).position.x = __pyx_t_9;
 
-    /* "simulation.pyx":35
+    /* "python/src/cython/_simulation.pyx":28
  *     for i in range(num_particles):
  *         c_particles[i].position.x = particles[i][0].x
  *         c_particles[i].position.y = particles[i][0].y             # <<<<<<<<<<<<<<
@@ -2644,21 +2594,21 @@ static PyObject *__pyx_pf_10simulation_simulate_particles(CYTHON_UNUSED PyObject
  */
     if (unlikely(__pyx_v_particles == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 35, __pyx_L1_error)
+      __PYX_ERR(0, 28, __pyx_L1_error)
     }
-    __pyx_t_4 = __Pyx_GetItemInt_List(__pyx_v_particles, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 35, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetItemInt_List(__pyx_v_particles, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 28, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_8 = __Pyx_GetItemInt(__pyx_t_4, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 35, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_GetItemInt(__pyx_t_4, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 28, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_y); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 35, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_y); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 28, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 35, __pyx_L1_error)
+    __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 28, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     (__pyx_v_c_particles[__pyx_v_i]).position.y = __pyx_t_9;
 
-    /* "simulation.pyx":36
+    /* "python/src/cython/_simulation.pyx":29
  *         c_particles[i].position.x = particles[i][0].x
  *         c_particles[i].position.y = particles[i][0].y
  *         c_particles[i].velocity.x = particles[i][1].x             # <<<<<<<<<<<<<<
@@ -2667,21 +2617,21 @@ static PyObject *__pyx_pf_10simulation_simulate_particles(CYTHON_UNUSED PyObject
  */
     if (unlikely(__pyx_v_particles == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 36, __pyx_L1_error)
+      __PYX_ERR(0, 29, __pyx_L1_error)
     }
-    __pyx_t_4 = __Pyx_GetItemInt_List(__pyx_v_particles, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 36, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetItemInt_List(__pyx_v_particles, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 29, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_8 = __Pyx_GetItemInt(__pyx_t_4, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 36, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_GetItemInt(__pyx_t_4, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 29, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_x); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 36, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_x); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 29, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 36, __pyx_L1_error)
+    __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 29, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     (__pyx_v_c_particles[__pyx_v_i]).velocity.x = __pyx_t_9;
 
-    /* "simulation.pyx":37
+    /* "python/src/cython/_simulation.pyx":30
  *         c_particles[i].position.y = particles[i][0].y
  *         c_particles[i].velocity.x = particles[i][1].x
  *         c_particles[i].velocity.y = particles[i][1].y             # <<<<<<<<<<<<<<
@@ -2690,53 +2640,53 @@ static PyObject *__pyx_pf_10simulation_simulate_particles(CYTHON_UNUSED PyObject
  */
     if (unlikely(__pyx_v_particles == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 37, __pyx_L1_error)
+      __PYX_ERR(0, 30, __pyx_L1_error)
     }
-    __pyx_t_4 = __Pyx_GetItemInt_List(__pyx_v_particles, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 37, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetItemInt_List(__pyx_v_particles, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 30, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_8 = __Pyx_GetItemInt(__pyx_t_4, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 37, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_GetItemInt(__pyx_t_4, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 30, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_y); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 37, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_y); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 30, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 37, __pyx_L1_error)
+    __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 30, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     (__pyx_v_c_particles[__pyx_v_i]).velocity.y = __pyx_t_9;
 
-    /* "simulation.pyx":38
+    /* "python/src/cython/_simulation.pyx":31
  *         c_particles[i].velocity.x = particles[i][1].x
  *         c_particles[i].velocity.y = particles[i][1].y
  *         c_particles[i].mass = particles[i][2]             # <<<<<<<<<<<<<<
  * 
- *     # Call the C function
+ *     simulate(c_particles, num_particles, num_steps, dt)
  */
     if (unlikely(__pyx_v_particles == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 38, __pyx_L1_error)
+      __PYX_ERR(0, 31, __pyx_L1_error)
     }
-    __pyx_t_4 = __Pyx_GetItemInt_List(__pyx_v_particles, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 38, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetItemInt_List(__pyx_v_particles, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 31, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_8 = __Pyx_GetItemInt(__pyx_t_4, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 38, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_GetItemInt(__pyx_t_4, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 31, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_t_8); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 38, __pyx_L1_error)
+    __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_t_8); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 31, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     (__pyx_v_c_particles[__pyx_v_i]).mass = __pyx_t_9;
   }
 
-  /* "simulation.pyx":41
+  /* "python/src/cython/_simulation.pyx":33
+ *         c_particles[i].mass = particles[i][2]
  * 
- *     # Call the C function
  *     simulate(c_particles, num_particles, num_steps, dt)             # <<<<<<<<<<<<<<
  * 
- *     # Convert C array back to Python list
+ *     # Update Python list based on C array
  */
   simulate(__pyx_v_c_particles, __pyx_v_num_particles, __pyx_v_num_steps, __pyx_v_dt);
 
-  /* "simulation.pyx":44
+  /* "python/src/cython/_simulation.pyx":36
  * 
- *     # Convert C array back to Python list
+ *     # Update Python list based on C array
  *     for i in range(num_particles):             # <<<<<<<<<<<<<<
  *         particles[i][0].x = c_particles[i].position.x
  *         particles[i][0].y = c_particles[i].position.y
@@ -2746,115 +2696,115 @@ static PyObject *__pyx_pf_10simulation_simulate_particles(CYTHON_UNUSED PyObject
   for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
     __pyx_v_i = __pyx_t_7;
 
-    /* "simulation.pyx":45
- *     # Convert C array back to Python list
+    /* "python/src/cython/_simulation.pyx":37
+ *     # Update Python list based on C array
  *     for i in range(num_particles):
  *         particles[i][0].x = c_particles[i].position.x             # <<<<<<<<<<<<<<
  *         particles[i][0].y = c_particles[i].position.y
  *         particles[i][1].x = c_particles[i].velocity.x
  */
-    __pyx_t_8 = PyFloat_FromDouble((__pyx_v_c_particles[__pyx_v_i]).position.x); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 45, __pyx_L1_error)
+    __pyx_t_8 = PyFloat_FromDouble((__pyx_v_c_particles[__pyx_v_i]).position.x); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 37, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     if (unlikely(__pyx_v_particles == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 45, __pyx_L1_error)
+      __PYX_ERR(0, 37, __pyx_L1_error)
     }
-    __pyx_t_4 = __Pyx_GetItemInt_List(__pyx_v_particles, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 45, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetItemInt_List(__pyx_v_particles, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 37, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_10 = __Pyx_GetItemInt(__pyx_t_4, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 45, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_GetItemInt(__pyx_t_4, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 37, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_10, __pyx_n_s_x, __pyx_t_8) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_10, __pyx_n_s_x, __pyx_t_8) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-    /* "simulation.pyx":46
+    /* "python/src/cython/_simulation.pyx":38
  *     for i in range(num_particles):
  *         particles[i][0].x = c_particles[i].position.x
  *         particles[i][0].y = c_particles[i].position.y             # <<<<<<<<<<<<<<
  *         particles[i][1].x = c_particles[i].velocity.x
  *         particles[i][1].y = c_particles[i].velocity.y
  */
-    __pyx_t_10 = PyFloat_FromDouble((__pyx_v_c_particles[__pyx_v_i]).position.y); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 46, __pyx_L1_error)
+    __pyx_t_10 = PyFloat_FromDouble((__pyx_v_c_particles[__pyx_v_i]).position.y); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 38, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     if (unlikely(__pyx_v_particles == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 46, __pyx_L1_error)
+      __PYX_ERR(0, 38, __pyx_L1_error)
     }
-    __pyx_t_8 = __Pyx_GetItemInt_List(__pyx_v_particles, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 46, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_GetItemInt_List(__pyx_v_particles, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 38, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_8, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 46, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_8, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 38, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_4, __pyx_n_s_y, __pyx_t_10) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_4, __pyx_n_s_y, __pyx_t_10) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "simulation.pyx":47
+    /* "python/src/cython/_simulation.pyx":39
  *         particles[i][0].x = c_particles[i].position.x
  *         particles[i][0].y = c_particles[i].position.y
  *         particles[i][1].x = c_particles[i].velocity.x             # <<<<<<<<<<<<<<
  *         particles[i][1].y = c_particles[i].velocity.y
  *         particles[i][2] = c_particles[i].mass
  */
-    __pyx_t_4 = PyFloat_FromDouble((__pyx_v_c_particles[__pyx_v_i]).velocity.x); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 47, __pyx_L1_error)
+    __pyx_t_4 = PyFloat_FromDouble((__pyx_v_c_particles[__pyx_v_i]).velocity.x); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 39, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     if (unlikely(__pyx_v_particles == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 47, __pyx_L1_error)
+      __PYX_ERR(0, 39, __pyx_L1_error)
     }
-    __pyx_t_10 = __Pyx_GetItemInt_List(__pyx_v_particles, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 47, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_GetItemInt_List(__pyx_v_particles, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 39, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    __pyx_t_8 = __Pyx_GetItemInt(__pyx_t_10, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 47, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_GetItemInt(__pyx_t_10, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 39, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_8, __pyx_n_s_x, __pyx_t_4) < 0) __PYX_ERR(0, 47, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_8, __pyx_n_s_x, __pyx_t_4) < 0) __PYX_ERR(0, 39, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-    /* "simulation.pyx":48
+    /* "python/src/cython/_simulation.pyx":40
  *         particles[i][0].y = c_particles[i].position.y
  *         particles[i][1].x = c_particles[i].velocity.x
  *         particles[i][1].y = c_particles[i].velocity.y             # <<<<<<<<<<<<<<
  *         particles[i][2] = c_particles[i].mass
  * 
  */
-    __pyx_t_8 = PyFloat_FromDouble((__pyx_v_c_particles[__pyx_v_i]).velocity.y); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 48, __pyx_L1_error)
+    __pyx_t_8 = PyFloat_FromDouble((__pyx_v_c_particles[__pyx_v_i]).velocity.y); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 40, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     if (unlikely(__pyx_v_particles == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 48, __pyx_L1_error)
+      __PYX_ERR(0, 40, __pyx_L1_error)
     }
-    __pyx_t_4 = __Pyx_GetItemInt_List(__pyx_v_particles, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 48, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetItemInt_List(__pyx_v_particles, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 40, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_10 = __Pyx_GetItemInt(__pyx_t_4, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 48, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_GetItemInt(__pyx_t_4, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 40, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_10, __pyx_n_s_y, __pyx_t_8) < 0) __PYX_ERR(0, 48, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_10, __pyx_n_s_y, __pyx_t_8) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-    /* "simulation.pyx":49
+    /* "python/src/cython/_simulation.pyx":41
  *         particles[i][1].x = c_particles[i].velocity.x
  *         particles[i][1].y = c_particles[i].velocity.y
  *         particles[i][2] = c_particles[i].mass             # <<<<<<<<<<<<<<
  * 
  *     # Free allocated memory
  */
-    __pyx_t_10 = PyFloat_FromDouble((__pyx_v_c_particles[__pyx_v_i]).mass); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 49, __pyx_L1_error)
+    __pyx_t_10 = PyFloat_FromDouble((__pyx_v_c_particles[__pyx_v_i]).mass); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 41, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     if (unlikely(__pyx_v_particles == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 49, __pyx_L1_error)
+      __PYX_ERR(0, 41, __pyx_L1_error)
     }
-    __pyx_t_8 = __Pyx_GetItemInt_List(__pyx_v_particles, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 49, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_GetItemInt_List(__pyx_v_particles, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 41, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    if (unlikely((__Pyx_SetItemInt(__pyx_t_8, 2, __pyx_t_10, long, 1, __Pyx_PyInt_From_long, 0, 0, 1) < 0))) __PYX_ERR(0, 49, __pyx_L1_error)
+    if (unlikely((__Pyx_SetItemInt(__pyx_t_8, 2, __pyx_t_10, long, 1, __Pyx_PyInt_From_long, 0, 0, 1) < 0))) __PYX_ERR(0, 41, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   }
 
-  /* "simulation.pyx":52
+  /* "python/src/cython/_simulation.pyx":44
  * 
  *     # Free allocated memory
  *     free(c_particles)             # <<<<<<<<<<<<<<
@@ -2862,14 +2812,14 @@ static PyObject *__pyx_pf_10simulation_simulate_particles(CYTHON_UNUSED PyObject
  */
   free(__pyx_v_c_particles);
 
-  /* "simulation.pyx":53
+  /* "python/src/cython/_simulation.pyx":45
  *     # Free allocated memory
  *     free(c_particles)
  *     free(forces)             # <<<<<<<<<<<<<<
  */
   free(__pyx_v_forces);
 
-  /* "simulation.pyx":20
+  /* "python/src/cython/_simulation.pyx":17
  * 
  * # Wrapper function for Python
  * def simulate_particles(list particles, int num_steps, double dt):             # <<<<<<<<<<<<<<
@@ -2884,7 +2834,7 @@ static PyObject *__pyx_pf_10simulation_simulate_particles(CYTHON_UNUSED PyObject
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_10);
-  __Pyx_AddTraceback("simulation.simulate_particles", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("python.src.cython._simulation.simulate_particles", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2923,10 +2873,10 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_num_particles, __pyx_k_num_particles, sizeof(__pyx_k_num_particles), 0, 0, 1, 1},
     {&__pyx_n_s_num_steps, __pyx_k_num_steps, sizeof(__pyx_k_num_steps), 0, 0, 1, 1},
     {&__pyx_n_s_particles, __pyx_k_particles, sizeof(__pyx_k_particles), 0, 0, 1, 1},
-    {&__pyx_kp_s_python_src_cython_simulation_pyx, __pyx_k_python_src_cython_simulation_pyx, sizeof(__pyx_k_python_src_cython_simulation_pyx), 0, 0, 1, 0},
+    {&__pyx_n_s_python_src_cython__simulation, __pyx_k_python_src_cython__simulation, sizeof(__pyx_k_python_src_cython__simulation), 0, 0, 1, 1},
+    {&__pyx_kp_s_python_src_cython__simulation_py, __pyx_k_python_src_cython__simulation_py, sizeof(__pyx_k_python_src_cython__simulation_py), 0, 0, 1, 0},
     {&__pyx_n_s_range, __pyx_k_range, sizeof(__pyx_k_range), 0, 0, 1, 1},
     {&__pyx_n_s_simulate_particles, __pyx_k_simulate_particles, sizeof(__pyx_k_simulate_particles), 0, 0, 1, 1},
-    {&__pyx_n_s_simulation, __pyx_k_simulation, sizeof(__pyx_k_simulation), 0, 0, 1, 1},
     {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
     {&__pyx_n_s_x, __pyx_k_x, sizeof(__pyx_k_x), 0, 0, 1, 1},
     {&__pyx_n_s_y, __pyx_k_y, sizeof(__pyx_k_y), 0, 0, 1, 1},
@@ -2936,8 +2886,8 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
 }
 /* #### Code section: cached_builtins ### */
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(0, 26, __pyx_L1_error)
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 26, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -2948,28 +2898,28 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "simulation.pyx":26
+  /* "python/src/cython/_simulation.pyx":23
  * 
  *     if c_particles == NULL or forces == NULL:
  *         raise MemoryError("Failed to allocate memory for particles or forces.")             # <<<<<<<<<<<<<<
  * 
- *     # Initialize memory for forces
+ *     # Convert Python list to C array
  */
-  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_s_Failed_to_allocate_memory_for_pa); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_s_Failed_to_allocate_memory_for_pa); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
 
-  /* "simulation.pyx":20
+  /* "python/src/cython/_simulation.pyx":17
  * 
  * # Wrapper function for Python
  * def simulate_particles(list particles, int num_steps, double dt):             # <<<<<<<<<<<<<<
  *     cdef int num_particles = len(particles)
  *     cdef Particle *c_particles = <Particle *> malloc(num_particles * sizeof(Particle))
  */
-  __pyx_tuple__2 = PyTuple_Pack(7, __pyx_n_s_particles, __pyx_n_s_num_steps, __pyx_n_s_dt, __pyx_n_s_num_particles, __pyx_n_s_c_particles, __pyx_n_s_forces, __pyx_n_s_i); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_tuple__2 = PyTuple_Pack(7, __pyx_n_s_particles, __pyx_n_s_num_steps, __pyx_n_s_dt, __pyx_n_s_num_particles, __pyx_n_s_c_particles, __pyx_n_s_forces, __pyx_n_s_i); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
-  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_python_src_cython_simulation_pyx, __pyx_n_s_simulate_particles, 20, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_python_src_cython__simulation_py, __pyx_n_s_simulate_particles, 17, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -3059,10 +3009,10 @@ static int __Pyx_modinit_function_import_code(void) {
 #if PY_MAJOR_VERSION >= 3
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 static PyObject* __pyx_pymod_create(PyObject *spec, PyModuleDef *def); /*proto*/
-static int __pyx_pymod_exec_simulation(PyObject* module); /*proto*/
+static int __pyx_pymod_exec__simulation(PyObject* module); /*proto*/
 static PyModuleDef_Slot __pyx_moduledef_slots[] = {
   {Py_mod_create, (void*)__pyx_pymod_create},
-  {Py_mod_exec, (void*)__pyx_pymod_exec_simulation},
+  {Py_mod_exec, (void*)__pyx_pymod_exec__simulation},
   {0, NULL}
 };
 #endif
@@ -3075,7 +3025,7 @@ namespace {
   #endif
   {
       PyModuleDef_HEAD_INIT,
-      "simulation",
+      "_simulation",
       0, /* m_doc */
     #if CYTHON_PEP489_MULTI_PHASE_INIT
       0, /* m_size */
@@ -3123,11 +3073,11 @@ namespace {
 
 
 #if PY_MAJOR_VERSION < 3
-__Pyx_PyMODINIT_FUNC initsimulation(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC initsimulation(void)
+__Pyx_PyMODINIT_FUNC init_simulation(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC init_simulation(void)
 #else
-__Pyx_PyMODINIT_FUNC PyInit_simulation(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC PyInit_simulation(void)
+__Pyx_PyMODINIT_FUNC PyInit__simulation(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC PyInit__simulation(void)
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 {
   return PyModuleDef_Init(&__pyx_moduledef);
@@ -3208,7 +3158,7 @@ bad:
 }
 
 
-static CYTHON_SMALL_CODE int __pyx_pymod_exec_simulation(PyObject *__pyx_pyinit_module)
+static CYTHON_SMALL_CODE int __pyx_pymod_exec__simulation(PyObject *__pyx_pyinit_module)
 #endif
 #endif
 {
@@ -3225,7 +3175,7 @@ static CYTHON_SMALL_CODE int __pyx_pymod_exec_simulation(PyObject *__pyx_pyinit_
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   if (__pyx_m) {
     if (__pyx_m == __pyx_pyinit_module) return 0;
-    PyErr_SetString(PyExc_RuntimeError, "Module 'simulation' has already been imported. Re-initialisation is not supported.");
+    PyErr_SetString(PyExc_RuntimeError, "Module '_simulation' has already been imported. Re-initialisation is not supported.");
     return -1;
   }
   #elif PY_MAJOR_VERSION >= 3
@@ -3237,13 +3187,13 @@ static CYTHON_SMALL_CODE int __pyx_pymod_exec_simulation(PyObject *__pyx_pyinit_
   Py_INCREF(__pyx_m);
   #else
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("simulation", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("_simulation", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   if (unlikely(!__pyx_m)) __PYX_ERR(0, 1, __pyx_L1_error)
   #elif CYTHON_USE_MODULE_STATE
   __pyx_t_1 = PyModule_Create(&__pyx_moduledef); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1, __pyx_L1_error)
   {
     int add_module_result = PyState_AddModule(__pyx_t_1, &__pyx_moduledef);
-    __pyx_t_1 = 0; /* transfer ownership from __pyx_t_1 to "simulation" pseudovariable */
+    __pyx_t_1 = 0; /* transfer ownership from __pyx_t_1 to "_simulation" pseudovariable */
     if (unlikely((add_module_result < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
     pystate_addmodule_run = 1;
   }
@@ -3267,7 +3217,7 @@ if (!__Pyx_RefNanny) {
       Py_FatalError("failed to import 'refnanny' module");
 }
 #endif
-  __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit_simulation(void)", 0);
+  __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit__simulation(void)", 0);
   if (__Pyx_check_binary_version(__PYX_LIMITED_VERSION_HEX, __Pyx_get_runtime_version(), CYTHON_COMPILING_IN_LIMITED_API) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #ifdef __Pxy_PyFrame_Initialize_Offsets
   __Pxy_PyFrame_Initialize_Offsets();
@@ -3305,14 +3255,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_simulation) {
+  if (__pyx_module_is_main_python__src__cython___simulation) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "simulation")) {
-      if (unlikely((PyDict_SetItemString(modules, "simulation", __pyx_m) < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "python.src.cython._simulation")) {
+      if (unlikely((PyDict_SetItemString(modules, "python.src.cython._simulation", __pyx_m) < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -3333,22 +3283,22 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "simulation.pyx":20
+  /* "python/src/cython/_simulation.pyx":17
  * 
  * # Wrapper function for Python
  * def simulate_particles(list particles, int num_steps, double dt):             # <<<<<<<<<<<<<<
  *     cdef int num_particles = len(particles)
  *     cdef Particle *c_particles = <Particle *> malloc(num_particles * sizeof(Particle))
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10simulation_1simulate_particles, 0, __pyx_n_s_simulate_particles, NULL, __pyx_n_s_simulation, __pyx_d, ((PyObject *)__pyx_codeobj__3)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_6python_3src_6cython_11_simulation_1simulate_particles, 0, __pyx_n_s_simulate_particles, NULL, __pyx_n_s_python_src_cython__simulation, __pyx_d, ((PyObject *)__pyx_codeobj__3)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_simulate_particles, __pyx_t_2) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_simulate_particles, __pyx_t_2) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "simulation.pyx":1
+  /* "python/src/cython/_simulation.pyx":1
  * from libc.stdlib cimport malloc, free             # <<<<<<<<<<<<<<
- * from libc.string cimport memset
  * 
+ * # block use definitions from an external C header file.
  */
   __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -3362,7 +3312,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d && stringtab_initialized) {
-      __Pyx_AddTraceback("init simulation", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init python.src.cython._simulation", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     #if !CYTHON_USE_MODULE_STATE
     Py_CLEAR(__pyx_m);
@@ -3376,7 +3326,7 @@ if (!__Pyx_RefNanny) {
     }
     #endif
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init simulation");
+    PyErr_SetString(PyExc_ImportError, "init python.src.cython._simulation");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
