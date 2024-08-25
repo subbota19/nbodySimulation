@@ -32,8 +32,3 @@ particles[1] = Particle(Vector(1.496e11, 0), Vector(0, 29780), 5.972e24)  # Eart
 
 # Run the simulation
 lib.simulate(particles, NUM_PARTICLES, NUM_STEPS, DT)
-
-# Output final positions of particles
-for i in range(NUM_PARTICLES):
-    p = particles[i]
-    print(f"Particle {i + 1} final position: x = {p.position.x}, y = {p.position.y}")

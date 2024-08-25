@@ -17,8 +17,3 @@ particles = [
 
 # Call the Cython function
 simulate_particles(particles, NUM_STEPS, DT)
-
-# Output final positions of particles
-for i, particle in enumerate(particles):
-    pos = particle[0]
-    print(f"Particle {i + 1} final position: x = {pos.x}, y = {pos.y}")

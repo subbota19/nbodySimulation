@@ -1,4 +1,4 @@
-from typing import List, Tuple
+from typing import List
 
 # Constants
 G: float = 6.67430e-11  # Gravitational constant
@@ -59,20 +59,7 @@ def update_positions_and_velocities(particles: List[Particle], forces: List[Vect
         _particle.position += _particle.velocity * dt
 
 
-def simulate(particles: List[Particle], num_steps: int, dt: float):
+def simulate(particles: List[Particle], num_steps: int = NUM_STEPS, dt: float = DT):
     for _ in range(num_steps):
         forces: List[Vector] = compute_forces(particles)
         update_positions_and_velocities(particles, forces, dt)
-
-
-# Initialize particles
-particles_data: List[Particle] = [
-    Particle(Vector(0, 0), Vector(0, 0), 1.989e30),  # Sun
-    Particle(Vector(1.496e11, 0), Vector(0, 29780), 5.972e24)  # Earth
-]
-
-simulate(particles=particles_data, num_steps=NUM_STEPS, dt=DT)
-
-# Output final positions of particles
-for i, particle in enumerate(particles_data):
-    print(f"Particle {i + 1} final position: x = {particle.position.x}, y = {particle.position.y}")
