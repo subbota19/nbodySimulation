@@ -5,7 +5,9 @@
 This project implements an N-Body simulation to model and analyze the movement of celestial bodies under the influence of gravitational forces. The simulation can be executed using three different computational approaches to estimate performance and accuracy:
 
 **Pure Python**: A straightforward implementation using Python classes and functions.
+
 **Cython**: A hybrid approach that compiles Python code to C for improved performance.
+
 **C with ctypes**: Utilizes a shared C library to perform the computation, invoked from Python using the `ctypes` library.
 
 Each implementation is designed to be interchangeable, allowing for easy comparison and profiling of different methods.
